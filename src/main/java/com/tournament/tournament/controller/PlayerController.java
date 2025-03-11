@@ -35,9 +35,9 @@ public class PlayerController {
         }
     }
 
-    @GetMapping("/")
-    public ResponseEntity getPlayer() {
-        return ResponseEntity.ok(this.playerService.getAllPlayers());
+    @GetMapping("/all/")
+    public ResponseEntity<List<Player>> getPlayer() {
+        return new  ResponseEntity(this.playerService.getAllPlayers(), HttpStatus.OK);
     }
 
     @GetMapping("/{idPlayer}")
