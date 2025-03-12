@@ -28,6 +28,7 @@ public class PlayerServiceImpl implements PlayerService {
         savedPlayer.setPeso(player.getPeso());
         savedPlayer.setFechaNacimiento(player.getFechaNacimiento());
         savedPlayer.setSexo(player.getSexo());
+        savedPlayer.setGrado(player.getGrado());
 
         return this.playerRepository.save(savedPlayer);
     }

@@ -1,5 +1,6 @@
 package com.tournament.tournament.entities;
 
+import com.tournament.tournament.utils.Grades;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -26,10 +27,13 @@ public class Player {
     private Float peso;
     private String sexo;
 
+    @Enumerated(EnumType.STRING)
+    private Grades grado;
+
     public Player() {
     }
 
-    public Player(UUID id, String name, String aPaterno, String aMaterno, LocalDateTime fechaNacimiento, Float altura, Float peso, String sexo) {
+    public Player(UUID id, String name, String aPaterno, String aMaterno, LocalDateTime fechaNacimiento, Float altura, Float peso, String sexo, String grado) {
         this.id = id;
         this.name = name;
         this.aPaterno = aPaterno;
@@ -38,6 +42,7 @@ public class Player {
         this.altura = altura;
         this.peso = peso;
         this.sexo = sexo;
+        this.grado = Grades.valueOf(grado);
     }
 
     public UUID getId() {
@@ -104,5 +109,13 @@ public class Player {
 
     public void setSexo(String sexo) {
         this.sexo = sexo;
+    }
+
+    public Grades getGrado() {
+        return grado;
+    }
+
+    public void setGrado(Grades grado) {
+        this.grado = grado;
     }
 }
